@@ -4,6 +4,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 function Page() {
   const router = useRouter();
@@ -14,7 +15,21 @@ function Page() {
   });
   const [loading, setLoading] = useState(false);
 
-  const handleSignup = async () => {};
+  const handleSignup = async (e:any) => {
+    e.preventDefault();
+    setLoading(true)
+    try {
+      const result = await axios.post("/api/users/signup",user)
+      console.log(result.data);
+      setLoading(false);
+      toast.success(result.data.message);
+      router.push("/login")
+    } catch (error:any) {
+      console.log(error.response?.data?.message)
+        setLoading(false);
+        toast.error(error.response?.data?.message || "Something went wrong")
+    }
+  };
 
   return (
     <div className="w-full min-h-screen flex justify-center items-center bg-black text-white p-4">
