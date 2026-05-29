@@ -4,6 +4,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 function Page() {
   const router = useRouter();
@@ -13,8 +14,20 @@ function Page() {
   });
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = async()=>{
-
+  const handleLogin = async(e:any)=>{
+    e.preventDefault()
+    setLoading(true);
+    try {
+      const result = await axios.post("/api/users/login",user)
+      console.log(result.data);
+      toast.success(result.data?.message)
+      setLoading(false);
+      router.push(`/profile/${result.data.createdUser.username}`)
+    } catch (error:any) {
+      console.log(error.response?.data?.message)
+      toast.error(error.response?.data?.message || "Something went wrong!")
+      setLoading(false);
+    }
   }
 
   return (
@@ -23,7 +36,6 @@ function Page() {
         <h1 className="text-3xl font-bold mb-6 tracking-wide">Next Auth</h1>
         
         <form onSubmit={handleLogin} className="w-full flex flex-col gap-4">
-          {/* Email Input */}
           <div className="w-full flex flex-col gap-1">
             <label htmlFor="email" className="text-sm font-medium text-slate-300">Email</label>
             <input
@@ -38,7 +50,6 @@ function Page() {
             />
           </div>
 
-          {/* Password Input */}
           <div className="w-full flex flex-col gap-1">
             <label htmlFor="password" className="text-sm font-medium text-slate-300">Password</label>
             <input
@@ -53,7 +64,6 @@ function Page() {
             />
           </div>
 
-          {/* Submit Button */}
           <button 
             type="submit" 
             disabled={loading}
