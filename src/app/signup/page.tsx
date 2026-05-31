@@ -32,21 +32,33 @@ function Page() {
   };
 
   return (
-    <div className="w-full min-h-screen flex justify-center items-center bg-black text-white p-4">
-      <div className="w-full max-w-md border-2 border-slate-200 rounded-2xl flex flex-col items-center p-6 bg-zinc-950 shadow-xl">
-        <h1 className="text-3xl font-bold mb-6 tracking-wide">Next Auth</h1>
+    <div className="w-full min-h-screen flex justify-center items-center bg-neutral-950 text-white selection:bg-amber-500 selection:text-black p-4">
+      
+      <div className="w-full max-w-md  border border-neutral-900 rounded-2xl flex flex-col items-center p-5 bg-neutral-900/40 backdrop-blur-md shadow-2xl relative overflow-hidden">
+        {/* Subtle background glow to match the home page theme style */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
 
-        <form onSubmit={handleSignup} className="w-full flex flex-col gap-4">
+        {/* Brand Logo Header */}
+        <div className="flex items-center gap-2 mb-6">
+          <div className="w-8 h-8 bg-amber-500 rounded-lg flex items-center justify-center font-bold text-black text-sm">
+            N
+          </div>
+          <span className="text-xl font-bold tracking-tight">nextAuth</span>
+        </div>
+
+        <h2 className="text-lg font-medium text-neutral-400 mb-6 text-center">Create your account</h2>
+
+        <form onSubmit={handleSignup} className="w-full flex flex-col gap-4 relative z-10">
           {/* Username Input */}
-          <div className="w-full flex flex-col gap-1">
+          <div className="w-full flex flex-col gap-1.5">
             <label
               htmlFor="username"
-              className="text-sm font-medium text-slate-300"
+              className="text-xs font-semibold uppercase tracking-wider text-neutral-400"
             >
               Username
             </label>
             <input
-              className="w-full border border-slate-200 bg-transparent p-2.5 rounded-lg text-white focus:outline-none focus:border-white transition-colors"
+              className="w-full border border-neutral-800 bg-neutral-950/60 p-3 rounded-xl text-white placeholder-neutral-600 focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/30 transition-all text-sm"
               type="text"
               id="username"
               name="username"
@@ -58,15 +70,15 @@ function Page() {
           </div>
 
           {/* Email Input */}
-          <div className="w-full flex flex-col gap-1">
+          <div className="w-full flex flex-col gap-1.5">
             <label
               htmlFor="email"
-              className="text-sm font-medium text-slate-300"
+              className="text-xs font-semibold uppercase tracking-wider text-neutral-400"
             >
-              Email
+              Email Address
             </label>
             <input
-              className="w-full border border-slate-200 bg-transparent p-2.5 rounded-lg text-white focus:outline-none focus:border-white transition-colors"
+              className="w-full border border-neutral-800 bg-neutral-950/60 p-3 rounded-xl text-white placeholder-neutral-600 focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/30 transition-all text-sm"
               type="email"
               id="email"
               name="email"
@@ -78,19 +90,19 @@ function Page() {
           </div>
 
           {/* Password Input */}
-          <div className="w-full flex flex-col gap-1">
+          <div className="w-full flex flex-col gap-1.5">
             <label
               htmlFor="password"
-              className="text-sm font-medium text-slate-300"
+              className="text-xs font-semibold uppercase tracking-wider text-neutral-400"
             >
               Password
             </label>
             <input
-              className="w-full border border-slate-200 bg-transparent p-2.5 rounded-lg text-white focus:outline-none focus:border-white transition-colors"
+              className="w-full border border-neutral-800 bg-neutral-950/60 p-3 rounded-xl text-white placeholder-neutral-600 focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/30 transition-all text-sm"
               type="password"
               id="password"
               name="password"
-              placeholder="*********"
+              placeholder="••••••••"
               value={user.password}
               onChange={(e) => setUser({ ...user, password: e.target.value })}
               required
@@ -101,19 +113,20 @@ function Page() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-white text-black font-semibold p-2.5 rounded-lg mt-2 hover:bg-slate-200 transition-colors disabled:bg-slate-400"
+            className="w-full bg-amber-500 text-black font-bold p-3 rounded-xl mt-4 shadow-lg shadow-amber-500/10 hover:bg-amber-400 hover:shadow-amber-500/20 transition-all disabled:bg-neutral-800 disabled:text-neutral-500 cursor-pointer disabled:cursor-not-allowed text-sm"
           >
-            {loading ? "Signing up..." : "Sign Up"}
+            {loading ? "Creating Account..." : "Get Started"}
           </button>
         </form>
 
-        <p className="mt-4 text-sm text-slate-400">
+        <p className="mt-6 text-xs text-neutral-500">
           Already have an account?{" "}
-          <Link href="/login" className="text-white hover:underline">
-            Login
+          <Link href="/login" className="text-amber-500 hover:text-amber-400 font-medium transition-colors ml-1">
+            Sign In
           </Link>
         </p>
       </div>
+      
     </div>
   );
 }
