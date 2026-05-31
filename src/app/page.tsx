@@ -15,7 +15,7 @@ export default function Home() {
           <div className="w-8 h-8 bg-amber-500 rounded-lg flex items-center justify-center font-bold text-black">
             N
           </div>
-          <span className="text-xl font-bold tracking-tight">NextCore</span>
+          <span className="text-xl font-bold tracking-tight">nextAuth</span>
         </div>
         
 
@@ -53,7 +53,7 @@ export default function Home() {
 
       <footer className="w-full border-t border-neutral-900 bg-neutral-950 text-neutral-500 text-xs py-8">
         <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <div>&copy; {new Date().getFullYear()} NextCore Inc. All rights reserved.</div>
+          <div>&copy; {new Date().getFullYear()} nextAuth Inc. All rights reserved.</div>
           <div className="flex gap-6">
             <a href="#" className="hover:text-neutral-300 transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-neutral-300 transition-colors">Terms of Service</a>
