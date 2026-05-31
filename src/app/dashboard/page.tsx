@@ -12,7 +12,7 @@ function page() {
     try {
       await axios.get("/api/users/logout");
       toast.success("Logout successfully!");
-      router.push("/login");
+      router.push("/");
     } catch (error: any) {
       toast.error(error.response?.data?.message);
       console.log(error.response?.data?.message);
