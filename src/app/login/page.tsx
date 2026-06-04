@@ -3,8 +3,9 @@
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import toast from "react-hot-toast";
+import { dataContext } from "@/app/context/UserContextProvider";
 
 function Page() {
   const router = useRouter();
@@ -13,6 +14,7 @@ function Page() {
     password: "",
   });
   const [loading, setLoading] = useState(false);
+  const { setUserData } = useContext(dataContext);
 
 
   
@@ -22,7 +24,7 @@ function Page() {
     setLoading(true);
     try {
       const result = await axios.post("/api/users/login",user)
-      console.log(result.data);
+      setUserData?.(result.data.createdUser)
       toast.success(result.data?.message)
       setLoading(false);
       router.push(`/dashboard`)
