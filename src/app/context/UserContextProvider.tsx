@@ -13,15 +13,14 @@ function UserContextProvider({children}:any) {
     const fetchCurrUser = async () => {
       try {
         const result: any = await axios.get("/api/users/curr-user");
-        console.log(result.data.data);
-        setUserData(result.data.data);
+        setUserData(result.data.data)
       } catch (error: any) {
         console.log(error.response?.data?.message);
       }
     };
 
     fetchCurrUser();
-  }, [userData,setUserData]);
+  }, []);
   return (
     <div>
       <dataContext.Provider value={{ userData, setUserData }}>
