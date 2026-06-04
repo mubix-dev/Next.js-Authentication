@@ -7,18 +7,19 @@ import Link from "next/link";
 import { dataContext } from "../context/UserContextProvider";
 function page() {
   const router = useRouter();
+  const {userData, setUserData} = useContext(dataContext);
 
   const handleLogout = async () => {
     try {
       await axios.get("/api/users/logout");
       toast.success("Logout successfully!");
+      setUserData?.(null);
       router.push("/");
     } catch (error: any) {
       toast.error(error.response?.data?.message);
       console.log(error.response?.data?.message);
     }
   };
-  const {userData} = useContext(dataContext);
   return (
     <div className="w-full min-h-screen flex justify-center items-center bg-neutral-950 text-white selection:bg-amber-500 selection:text-black p-4">
       
