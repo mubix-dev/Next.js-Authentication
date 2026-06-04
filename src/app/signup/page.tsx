@@ -25,7 +25,7 @@ function Page() {
       toast.success(result.data.message);
       router.push("/login")
     } catch (error:any) {
-      console.log(error.response?.data?.message)
+      console.log(error)
         setLoading(false);
         toast.error(error.response?.data?.message || "Something went wrong")
     }
