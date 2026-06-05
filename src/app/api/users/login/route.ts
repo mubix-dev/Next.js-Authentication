@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
     const user = await User.findOne({ email });
     if (!user) {
       return NextResponse.json(
-        { error: "User not fond!" },
+        { message: "User not fond!" },
         { status: 400 },
       );
     }
@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     const isPasswordValid = await bcrypt.compare(password,user.password);
     if(!isPasswordValid){
         return NextResponse.json(
-        { error: "Invalid credentials!" },
+        { message: "Invalid credentials!" },
         { status: 400 },
       );
     }
@@ -49,12 +49,14 @@ export async function POST(req: NextRequest) {
     },{status:200})
     
     response.cookies.set("token",token,{
-        httpOnly:true
+        httpOnly:true,
+        sameSite:"strict",
+        maxAge:24 * 60 * 60
     })
 
     return response;
 
   } catch (err: any) {
-    return NextResponse.json({ error: err.message }, { status: 500 });
+    return NextResponse.json({ message: err.message }, { status: 500 });
   }
 }
