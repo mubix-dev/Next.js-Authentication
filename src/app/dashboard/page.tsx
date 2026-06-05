@@ -45,7 +45,7 @@ function page() {
           {/* Dynamic "My Profile" button conditionally rendered based on userData */}
           {userData && (
             <Link 
-              href={`/dashboard/${userData._id}`}
+              href={`/dashboard/profile`}
               className="w-full bg-amber-500 text-black font-bold p-3 rounded-xl shadow-lg shadow-amber-500/5 hover:bg-amber-400 hover:shadow-amber-500/15 transition-all text-sm block text-center cursor-pointer"
             >
               My Profile
