@@ -81,6 +81,12 @@ function Page() {
               >
                 Password
               </label>
+              <Link 
+                href="/forgot-password" 
+                className="text-xs text-neutral-500 hover:text-amber-500 transition-colors font-medium"
+              >
+                Forgot password?
+              </Link>
             </div>
             <input
               className="w-full border border-neutral-800 bg-neutral-950/60 p-3 rounded-xl text-white placeholder-neutral-600 focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/30 transition-all text-sm"
