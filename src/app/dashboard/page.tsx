@@ -46,7 +46,7 @@ function page() {
           {userData && (
             <Link 
               href={`/dashboard/profile`}
-              className="w-full bg-amber-500 text-black font-bold p-3 rounded-xl shadow-lg shadow-amber-500/5 hover:bg-amber-400 hover:shadow-amber-500/15 transition-all text-sm block text-center cursor-pointer"
+              className="w-full bg-white text-black font-bold p-3 rounded-xl shadow-lg shadow-amber-500/5 hover:bg-white/80 hover:shadow-amber-500/15 transition-all text-sm block text-center cursor-pointer"
             >
               My Profile
             </Link>

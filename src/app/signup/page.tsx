@@ -40,7 +40,7 @@ function Page() {
 
         {/* Brand Logo Header */}
         <div className="flex items-center gap-2 mb-6">
-          <div className="w-8 h-8 bg-amber-500 rounded-lg flex items-center justify-center font-bold text-black text-sm">
+          <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center font-bold text-black text-sm">
             N
           </div>
           <span className="text-xl font-bold tracking-tight">nextAuth</span>
@@ -113,7 +113,7 @@ function Page() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-amber-500 text-black font-bold p-3 rounded-xl mt-4 shadow-lg shadow-amber-500/10 hover:bg-amber-400 hover:shadow-amber-500/20 transition-all disabled:bg-neutral-800 disabled:text-neutral-500 cursor-pointer disabled:cursor-not-allowed text-sm"
+            className="w-full bg-white text-black font-bold p-3 rounded-xl mt-4 shadow-lg shadow-amber-500/10 hover:bg-white/80 hover:shadow-amber-500/20 transition-all disabled:bg-neutral-800 disabled:text-neutral-500 cursor-pointer disabled:cursor-not-allowed text-sm"
           >
             {loading ? "Creating Account..." : "Get Started"}
           </button>
@@ -121,7 +121,7 @@ function Page() {
 
         <p className="mt-6 text-xs text-neutral-500">
           Already have an account?{" "}
-          <Link href="/login" className="text-amber-500 hover:text-amber-400 font-medium transition-colors ml-1">
+          <Link href="/login" className="text-white hover:text-white/70 font-medium transition-colors ml-1">
             Sign In
           </Link>
         </p>

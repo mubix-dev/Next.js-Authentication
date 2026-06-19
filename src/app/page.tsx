@@ -12,7 +12,7 @@ export default function Home() {
       
       <nav className="w-full max-w-7xl mx-auto px-6 py-4 flex justify-between items-center border-b border-neutral-900">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-amber-500 rounded-lg flex items-center justify-center font-bold text-black">
+          <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center font-bold text-black">
             N
           </div>
           <span className="text-xl font-bold tracking-tight">nextAuth</span>
@@ -36,7 +36,7 @@ export default function Home() {
               </Link>
               <Link 
                 href="/signup" 
-                className="text-sm bg-amber-500 text-black font-semibold px-4 py-2 rounded-lg hover:bg-amber-400 transition-colors"
+                className="text-sm bg-white text-black font-semibold px-4 py-2 rounded-lg hover:bg-white/80 transition-colors"
               >
                 Get Started
               </Link>
