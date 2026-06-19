@@ -142,7 +142,7 @@ export default function Page() {
 
           <div className="flex items-center justify-between text-xs">
             <Link
-              href="/profile"
+              href="/dashboard/profile"
               className="font-medium text-neutral-500 hover:text-white transition-colors"
             >
               ← Back to Profile
